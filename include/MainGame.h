@@ -24,8 +24,8 @@ class MainGame
 
     private:
         SDL_Window* _window; /**< Pointer to SDL_Window object that is initialized in the initSystems() function. */
-        int _screenWidth;
-        int _screenHeight;
+        int _screenWidth; /**< Screen width of the window. */
+        int _screenHeight; /**< Screen height of the window. */
 
 };
 
