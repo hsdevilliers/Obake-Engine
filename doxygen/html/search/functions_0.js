@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['initsystems',['initSystems',['../class_main_game.html#af2696caa76f63022e6217837b884efb8',1,'MainGame']]]
+  ['run',['run',['../class_main_game.html#adacd3f33a9f5e53f33f967d0d66f4d58',1,'MainGame']]]
 ];

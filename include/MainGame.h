@@ -4,6 +4,14 @@
 #include <SDL2/SDL.h>
 #include <GL/glew.h>
 
+/** \brief Various game states
+ */
+enum class GameState
+{
+    PLAY,
+    EXIT
+};
+
 class MainGame
 {
     public:
@@ -15,17 +23,21 @@ class MainGame
          */
         void run();
 
+    protected:
+
+    private:
         /** \fn void initSystems()
          *  Initializes the various systems used in the game engine.
          */
         void initSystems();
+        void gameLoop();
+        void processInput();
 
-    protected:
-
-    private:
         SDL_Window* _window; /**< Pointer to SDL_Window object that is initialized in the initSystems() function. */
         int _screenWidth; /**< Screen width of the window. */
         int _screenHeight; /**< Screen height of the window. */
+
+        GameState _gameState;
 
 };
 
