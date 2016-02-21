@@ -647,11 +647,13 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1456039358 source:d:\stephan\work\makinggameswithben\graphics_tutorials\src\maingame.cpp
+1456045176 source:d:\stephan\work\makinggameswithben\graphics_tutorials\src\maingame.cpp
 	<cstdio>
+	<string>
+	<iostream>
 	"MainGame.h"
 
-1456038512 d:\stephan\work\makinggameswithben\graphics_tutorials\include\maingame.h
+1456044228 d:\stephan\work\makinggameswithben\graphics_tutorials\include\maingame.h
 	<SDL2/SDL.h>
 	<GL/glew.h>
 

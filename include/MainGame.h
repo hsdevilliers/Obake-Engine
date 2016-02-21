@@ -4,7 +4,7 @@
 #include <SDL2/SDL.h>
 #include <GL/glew.h>
 
-/** \brief Various game states
+/** \enum Various game states
  */
 enum class GameState
 {
@@ -32,6 +32,7 @@ class MainGame
         void initSystems();
         void gameLoop();
         void processInput();
+        void drawGame();
 
         SDL_Window* _window; /**< Pointer to SDL_Window object that is initialized in the initSystems() function. */
         int _screenWidth; /**< Screen width of the window. */
