@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1456039158 source:d:\stephan\work\makinggameswithben\graphics_tutorials\main.cpp
+1456344035 source:d:\stephan\work\makinggameswithben\graphics_tutorials\main.cpp
 	<iostream>
 	<cstdio>
-	<MainGame.h>
+	"MainGame.h"
 
 1394253593 d:\stephan\work\makinggameswithben\deps\include\sdl\sdl.h
 	"SDL_main.h"
@@ -647,13 +647,43 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1456045176 source:d:\stephan\work\makinggameswithben\graphics_tutorials\src\maingame.cpp
+1456344684 source:d:\stephan\work\makinggameswithben\graphics_tutorials\src\maingame.cpp
 	<cstdio>
 	<string>
 	<iostream>
 	"MainGame.h"
+	"Errors.h"
+	"GLSLProgram.h"
 
-1456044228 d:\stephan\work\makinggameswithben\graphics_tutorials\include\maingame.h
+1456344695 d:\stephan\work\makinggameswithben\graphics_tutorials\include\maingame.h
 	<SDL2/SDL.h>
 	<GL/glew.h>
+	"Sprite.h"
+	"GLSLProgram.h"
+
+1456170947 d:\stephan\work\makinggameswithben\graphics_tutorials\include\sprite.h
+	<GL/glew.h>
+
+1456160134 source:d:\stephan\work\makinggameswithben\graphics_tutorials\src\sprite.cpp
+	"Sprite.h"
+
+1456170960 d:\stephan\work\makinggameswithben\graphics_tutorials\include\glslprogram.h
+	<string>
+	<GL/glew.h>
+
+1456167935 source:d:\stephan\work\makinggameswithben\graphics_tutorials\src\errors.cpp
+	"Errors.h"
+	<cstdlib>
+	<SDL2/SDL.h>
+	<iostream>
+	<cstdio>
+
+1456163561 d:\stephan\work\makinggameswithben\graphics_tutorials\include\errors.h
+	<string>
+
+1456171610 source:d:\stephan\work\makinggameswithben\graphics_tutorials\src\glslprogram.cpp
+	"GLSLProgram.h"
+	"Errors.h"
+	<fstream>
+	<vector>
 

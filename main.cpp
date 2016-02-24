@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdio>
 
-#include <MainGame.h>
+#include "MainGame.h"
 
 int main(int argc, char** argv)
 {

@@ -3,16 +3,8 @@
 #include <iostream>
 
 #include "MainGame.h"
-
-void fatalError(std::string errorString)
-{
-    printf("%s\n", errorString.c_str());
-    printf("A fatal error occurred!\nEnter any key to quit...\n");
-    int tmp;
-    std::cin >> tmp;
-
-    SDL_Quit(); //SDL function that can quit the program from any point in the code
-}
+#include "Errors.h"
+#include "GLSLProgram.h"
 
 MainGame::MainGame()
 {
@@ -30,6 +22,9 @@ MainGame::~MainGame()
 void MainGame::run()
 {
     initSystems();
+
+    _sprite.init(-1.0f, -1.0f, 1.0f, 1.0f);
+
     gameLoop();
 }
 
@@ -58,14 +53,40 @@ void MainGame::initSystems()
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1); //Initializes the Double Buffer pattern
 
     glClearColor(0.0f, 0.0f, 1.0f, 1.0); //Set the color to be switched to with glClear() in drawGame()
+
+    initShaders();
+}
+
+void MainGame::initShaders()
+{
+    _colorShaderProgram.compileShaders("shaders/colorShading.vert", "shaders/colorShading.frag");
+    _colorShaderProgram.addAttribute("vertexPosition");
+    _colorShaderProgram.linkShaders();
 }
 
 void MainGame::gameLoop()
 {
+    Uint32 previousTicks = SDL_GetTicks();
+    Uint32 lag = 0;
+
     while(_gameState != GameState::EXIT)
     {
+        Uint32 currentTicks = SDL_GetTicks();
+        Uint32 elapsed = currentTicks - previousTicks;
+        previousTicks = currentTicks;
+        lag += elapsed;
+
         processInput();
-        drawGame();
+
+        /*
+        while(lag >= MS_PER_UPDATE)
+        {
+            update();
+            lag -= MS_PER_UPDATE;
+        }
+        */
+
+        render();
     }
 }
 
@@ -90,21 +111,16 @@ void MainGame::processInput()
     }
 }
 
-void MainGame::drawGame()
+void MainGame::render()
 {
     glClearDepth(1.0); //Sets OpenGL's clear depth
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //Each time the game is draw, the buffer is cleared
 
-    //Temporary piece of code using deprecated OpenGL method of drawing
-    //***********************************************************************************
-    glEnableClientState(GL_COLOR_ARRAY);
-    glBegin(GL_TRIANGLES);
-    glColor3f(1.0f, 0.0f, 0.0f);
-    glVertex2f(0, 0);
-    glVertex2f(0, 500);
-    glVertex2f(500, 500);
-    glEnd();
-    //***********************************************************************************
+    _colorShaderProgram.use();
+
+    _sprite.renderSprite();
+
+    _colorShaderProgram.unuse();
 
     SDL_GL_SwapWindow(_window);
 }

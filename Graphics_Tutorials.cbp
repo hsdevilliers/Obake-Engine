@@ -11,6 +11,7 @@
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
 				<Compiler>
 					<Add option="-g" />
 					<Add directory="../deps/include" />
@@ -42,9 +43,15 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="include/Errors.h" />
+		<Unit filename="include/GLSLProgram.h" />
 		<Unit filename="include/MainGame.h" />
+		<Unit filename="include/Sprite.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Errors.cpp" />
+		<Unit filename="src/GLSLProgram.cpp" />
 		<Unit filename="src/MainGame.cpp" />
+		<Unit filename="src/Sprite.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
